@@ -1,0 +1,14 @@
+# IDE FOLDERS
+.idea/
+
+# ENVIROMENT FILES
+.env
+venv/
+
+# DJANGO DEFAULT FILES
+db.sqlite3
+
+### PYTHON ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
