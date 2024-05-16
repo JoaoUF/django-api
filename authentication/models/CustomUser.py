@@ -2,6 +2,7 @@ from django_extensions.db.models import ActivatorModel, TimeStampedModel
 from django.contrib.auth.models import AbstractUser, PermissionsMixin
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from rest_framework_simplejwt.tokens import RefreshToken
 
 from .CustomUserManager import CustomUserManager
 
@@ -22,4 +23,8 @@ class CustomUser(AbstractUser, PermissionsMixin, ActivatorModel, TimeStampedMode
         return self.email
 
     def tokens(self):
-        return ''
+        refresh = RefreshToken.for_user(self)
+        return {
+            'refresh': str(refresh),
+            'access': str(refresh.access_token)
+        }
