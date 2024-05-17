@@ -1,5 +1,6 @@
 from pathlib import Path
 from dotenv import load_dotenv
+from datetime import timedelta
 import os
 import sys
 
@@ -32,6 +33,7 @@ THIRD_PARTY_APPS = [
 PERSONAL_APPS = [
     'authentication',
     'expenses',
+    'income',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PERSONAL_APPS
@@ -137,4 +139,10 @@ SWAGGER_SETTINGS = {
             'in': 'header'
         }
     }
+}
+
+# JWT SETTINGS
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=10),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
 }
